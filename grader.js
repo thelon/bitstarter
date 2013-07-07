@@ -50,8 +50,7 @@ function getUrl(urlfile) {
 
 var cheerioUrlFile = function(urlfile){
     var result =getUrl(urlfile);
-    console.log(result.toString());
-    console.log(result);
+
     return cheerio.load(result);
 };
 
