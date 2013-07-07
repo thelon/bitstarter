@@ -42,7 +42,7 @@ var cheerioHtmlFile = function(htmlfile) {
 };
 
 function getUrl(url) {
-  return new (require('httpclient').HttpClient)({
+  return new (http.HttpClient)({
     method: 'GET',
       url: url
     }).finish().body.read().decodeToString();
