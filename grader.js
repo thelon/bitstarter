@@ -43,7 +43,7 @@ var cheerioHtmlFile = function(htmlfile) {
 
 var cheerioUrlFile = function(urlfile){
     var result =http.get(urlfile);
-    console.log(result);
+    console.log(result.toString());
     return cheerio.load(result);
 };
 
