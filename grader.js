@@ -45,7 +45,7 @@ var cheerioHtmlFile = function(htmlfile) {
 function getUrl(urlfile) {
   var req = httpsync.get({ url : urlfile});
   var res = req.end();
-  return res;
+  return res.data.toString('utf8');
 }
 
 var cheerioUrlFile = function(urlfile){
