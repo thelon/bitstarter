@@ -41,8 +41,15 @@ var cheerioHtmlFile = function(htmlfile) {
     return cheerio.load(fs.readFileSync(htmlfile));
 };
 
+function getUrl(url) {
+  return new (require('httpclient').HttpClient)({
+    method: 'GET',
+      url: url
+    }).finish().body.read().decodeToString();
+}
+
 var cheerioUrlFile = function(urlfile){
-    var result =http.get(urlfile);
+    var result =getUrl(urlfile);
     console.log(result.toString());
     return cheerio.load(result);
 };
