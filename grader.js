@@ -42,7 +42,9 @@ var cheerioHtmlFile = function(htmlfile) {
 };
 
 var cheerioUrlFile = function(urlfile){
-    return cheerio.load(http.get(urlfile));
+    var result =http.get(urlfile);
+    console.log(result);
+    return cheerio.load(result);
 };
 
 var loadChecks = function(checksfile) {
