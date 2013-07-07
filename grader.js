@@ -25,6 +25,7 @@ var fs = require('fs');
 var program = require('commander');
 var cheerio = require('cheerio');
 var http = require('http');
+var httpsync = require('httpsync');
 var HTMLFILE_DEFAULT = "index.html";
 var CHECKSFILE_DEFAULT = "checks.json";
 
@@ -41,11 +42,10 @@ var cheerioHtmlFile = function(htmlfile) {
     return cheerio.load(fs.readFileSync(htmlfile));
 };
 
-function getUrl(url) {
-  return new (http.HttpClient)({
-    method: 'GET',
-      url: url
-    }).finish().body.read().decodeToString();
+function getUrl(urlfile) {
+  var req = httpsync.get({ url : urlfile});
+  var res = req.end();
+  return res;
 }
 
 var cheerioUrlFile = function(urlfile){
